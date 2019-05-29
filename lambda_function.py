@@ -18,8 +18,7 @@ tealium_datasource = ""
 processed_bucket = ""
 processed_key = ""
 
-#copy object that is being processed so that
-#it does not get processed again
+#copy object that is being processed
 def copy_object(src_bucket_name, src_object_name,
                 dest_bucket_name, dest_object_name=None):
 
@@ -61,6 +60,8 @@ def send_to_tealium(obj, a, p):
     
     return "";
 
+
+#lambda event handler
 def lambda_handler(event, context):
     source_bucket = event['Records'][0]['s3']['bucket']['name']
     key = urllib.parse.unquote(event['Records'][0]['s3']['object']['key'])
