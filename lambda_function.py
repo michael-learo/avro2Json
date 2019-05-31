@@ -1,5 +1,4 @@
 import json
-#from avro.datafile import DataFileReader
 from avro.datafile import DataFileReader, DataFileWriter
 from avro.io import DatumReader, DatumWriter
 import boto3
@@ -11,8 +10,6 @@ s3 = boto3.client('s3')
 url = "https://collect.tealiumiq.com/event"
 
 
-tealium_account = ""
-tealium_profile = ""
 tealium_datasource = ""
 
 processed_bucket = ""
